@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "PhepTinh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Phép tính hai số</h2>
+
+
+<form action="/Home/PhepTinh" method="post" onsubmit="return validateForm()">
+    <input type="number" id="soA" name="soA" placeholder="Nhập số A" />
+    <select id="pheptinh" name="pheptinh">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" id="soB" name="soB" placeholder="Nhập số B"/>
+    <input type="submit" value="Tính" />
+    <br />
+    <label> @ViewBag.result </label>
+</form>
+
+<script>
+
+    function validateForm() {
+        var soA = document.getElementById('soA').value;
+        var soB = document.getElementById('soB').value;
+        if (!soA) {
+            alert(" Vui lòng nhập số A!")
+            return false;
+        }
+        if (!soB) {
+            alert(" Vui lòng nhập số B!")
+            return false;
+        }
+        return true;
+    }
+</script>
